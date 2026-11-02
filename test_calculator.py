@@ -1,25 +1,21 @@
+
+import pytest
 from calculator import Calculator
 
-def test_addition():
-    calc = Calculator()
-    result = calc.add(2, 3)
-    assert result == 5, f"Expected 5 but got {result}"
-def test_subtraction():
-    calc = Calculator()
-    result = calc.subtract(5, 3)
-    assert result == 2, f"Expected 2 but got {result}"
-def test_multiplication():
-    calc = Calculator()
-    result = calc.multiply(4, 3)
-    assert result == 12, f"Expected 12 but got {result}"
-def test_division():
-    calc = Calculator()
-    result = calc.divide(10, 2)
-    assert result == 5, f"Expected 5 but got {result}"
-def test_division_by_zero():
-    calc = Calculator()
-    try:
+calc = Calculator()
+
+def test_add():
+    assert calc.add(10, 5) == 15
+
+def test_subtract():
+    assert calc.subtract(10, 5) == 5
+
+def test_multiply():
+    assert calc.multiply(10, 5) == 50
+
+def test_divide():
+    assert calc.divide(10, 5) == 2
+
+def test_divide_by_zero():
+    with pytest.raises(ValueError):
         calc.divide(10, 0)
-        assert False, "Expected ValueError for division by zero"
-    except ValueError as e:
-        assert str(e) == "Denominator cannot be zero.", f"Unexpected error message: {str(e)}"

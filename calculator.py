@@ -1,13 +1,15 @@
-def calculate(x, y, operation):
-    return x + y
+class Calculator:
 
-def subtract(x, y):
-    return x - y
+    def add(self, a, b):
+        return a + b
 
-def multiply(x, y):
-    return x * y
+    def subtract(self, a, b):
+        return a - b
 
-def divide(x, y):
-    if y == 0:
-        raise ValueError("Denominator cannot be zero.")
-    return x / y
+    def multiply(self, a, b):
+        return a * b
+
+    def divide(self, a, b):
+        if b == 0:
+            raise ValueError("Cannot divide by zero")
+        return a / b
